@@ -5,13 +5,13 @@
 using namespace std;
 
 
-unordered_map<char, char> trans = {
-    {'l', 'H'},
-    {'0', 'e'},
-    {'p', 'l'},
-    {'x', 'o'},
-    {'!', ','},
-    {' ', ' '}
+unordered_map<string, string> trans = {
+    {"-1}sd", "H"},
+    {"-2{jh", "e"},
+    {"-3*&%", "l"},
+    {"-4;s@", "o"},
+    {"-59()>", ","},
+    {"_", " "}
 };
 
 
@@ -20,7 +20,8 @@ string transformCompLang(string text){
     for (char& c : text){
         for (auto& i: trans)
         {
-            if (c == i.second){
+
+            if (string(1, c)  == i.second){
                 outText += i.first;
             }
         }
@@ -33,7 +34,7 @@ string transformEngLang(string text){
     for (char& c : text){
         for (auto& i: trans)
         {
-            if (c == i.first){
+            if (to_string(c) == i.first){
                 outText += i.second;
             }
         }
@@ -46,8 +47,8 @@ int main() {
     string text2 = "l0ppx";// for transformEngLang();
     string outText;
 
-    cout << "Input: " << text2 << endl;
-    cout << "Output: " << transformEngLang(text2) << endl;
+    cout << "Input: " << text << endl;
+    cout << "Output: " << transformCompLang(text) << endl;
 
     return 0;
 }
